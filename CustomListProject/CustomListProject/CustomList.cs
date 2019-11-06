@@ -21,6 +21,26 @@ namespace CustomListProject
             }
         }
 
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+        }
+
+        public T this [int i]
+        {
+            get
+            {
+                return items[i];
+            }
+            set
+            {
+                items[i] = value;
+            }
+        }
+
         //constructor
         public CustomList()
         {
@@ -33,9 +53,19 @@ namespace CustomListProject
 
         public void Add(T item)
         {
-            items[0] = item;
+            T[] tempArray;
+            if (count == capacity)
+            {
+                capacity *= 2;
+                tempArray = new T[capacity];
+                for (int i = 0; i < count; i++)
+                {
+                    tempArray[i] = items[i];
+                }
+                items = tempArray;
+            }
+            items[count] = item;
+            count++;
         }
-
-
     }
 }
