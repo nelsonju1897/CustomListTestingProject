@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> 
     {
         //member variables
         private T[] items;
@@ -29,7 +29,7 @@ namespace CustomListProject
             }
         }
 
-        public T this [int i]
+        public T this[int i]
         {
             get
             {
@@ -66,6 +66,28 @@ namespace CustomListProject
             }
             items[count] = item;
             count++;
+        }
+
+        public void Remove(T item)
+        {
+            T[] tempArray;
+            tempArray = new T[capacity];
+            for (int i = 0, j = 0; i < count; i++, j++)
+            {
+                if (item.Equals(items[i]))
+                {
+                    j--;
+                }
+                else
+                {
+                    tempArray[j] = items[i];
+                }
+                
+            }
+            items = tempArray;
+
+            count--;
+
         }
     }
 }
