@@ -10,12 +10,15 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
-            CustomList<int> myList = new CustomList<int>();
-            myList.Add(1);
-            myList.Add(2);
-            myList.Add(3);
-            myList.Add(4);
-            myList.Remove(3);
+            CustomList<char> myList = new CustomList<char>();
+            myList.Add('B');
+            myList.Add('o');
+            myList.Add('o');
+            myList.Add('m');
+            
+            Console.WriteLine(myList);
+            myList.ToString();
+            
 
 
             //CustomList<int> myList = new CustomList<int>();

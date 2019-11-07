@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> 
+    public class CustomList<T>
     {
         //member variables
         private T[] items;
         private int capacity;
         private int count;
+        
 
         public int Count
         {
@@ -82,12 +83,36 @@ namespace CustomListProject
                 {
                     tempArray[j] = items[i];
                 }
-                
+
             }
             items = tempArray;
 
             count--;
 
+        }
+
+        public override string ToString()
+        {
+            string listString ="";
+            for (int i = 0; i < Count; i++)
+            {
+                listString += items[i].ToString();
+            }
+            return listString;
+        }
+
+        public static CustomList<T> operator +(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> customListAdded = new CustomList<T>();
+            for (int i = 0; i < one.Count; i++)
+            {
+                customListAdded.Add(one[i]);
+            }
+            for (int i = 0; i < two.Count; i++)
+            {
+                customListAdded.Add(two[i]);
+            }
+            return customListAdded;
         }
     }
 }

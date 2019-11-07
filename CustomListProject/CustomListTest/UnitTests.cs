@@ -247,5 +247,117 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void CustomList_ToString_ConvertingIntToString()
+        {
+            //arrange
+            CustomList<int> list1 = new CustomList<int>();
+            string expected = "1";
+            string actual;
+            int number1 = 1;
+            
+
+            //act
+            list1.Add(number1);
+            actual = list1.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CustomList_ToString_ConvertingFiveIntsToString()
+        {
+            //arrange
+            CustomList<int> list1 = new CustomList<int>();
+            string expected = "12345";
+            string actual;
+            int number1 = 1;
+            int number2 = 2;
+            int number3 = 3;
+            int number4 = 4;
+            int number5 = 5;
+
+            //act
+            list1.Add(number1);
+            list1.Add(number2);
+            list1.Add(number3);
+            list1.Add(number4);
+            list1.Add(number5);
+            actual = list1.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CustomList_ToString_Converting()
+        {
+            //arrange
+            CustomList<char> list1 = new CustomList<char>();
+            string expected = "Flamingo";
+            string actual;
+            char character1 = 'F';
+            char character2 = 'l';
+            char character3 = 'a';
+            char character4 = 'm';
+            char character5 = 'i';
+            char character6 = 'n';
+            char character7 = 'g';
+            char character8 = 'o';
+
+
+            //act
+            list1.Add(character1);
+            list1.Add(character2);
+            list1.Add(character3);
+            list1.Add(character4);
+            list1.Add(character5);
+            list1.Add(character6);
+            list1.Add(character7);
+            list1.Add(character8);
+            actual = list1.ToString();
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CustomList_OverLoadPlus_CombineTwoLists()
+        {
+            //arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> actual;
+            int expected = 12345678;
+           
+            int number1 = 1;
+            int number2 = 2;
+            int number3 = 3;
+            int number4 = 4;
+            int number5 = 5;
+            int number6 = 6;
+            int number7 = 7;
+            int number8 = 8;
+
+
+
+            //act
+            list1.Add(number1);
+            list1.Add(number2);
+            list1.Add(number3);
+            list1.Add(number4);
+            list2.Add(number5);
+            list2.Add(number6);
+            list2.Add(number7);
+            list2.Add(number8);
+            actual = list1 + list2;
+
+
+            //assert
+            //CollectionAssert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
