@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T> :IEnumerable
     {
         //member variables
         private T[] items;
@@ -101,18 +102,66 @@ namespace CustomListProject
             return listString;
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                yield return items[i];
+            }
+        }
+
         public static CustomList<T> operator +(CustomList<T> one, CustomList<T> two)
         {
             CustomList<T> customListAdded = new CustomList<T>();
             for (int i = 0; i < one.Count; i++)
             {
+                
                 customListAdded.Add(one[i]);
             }
             for (int i = 0; i < two.Count; i++)
             {
                 customListAdded.Add(two[i]);
             }
+            customListAdded.ToString();
             return customListAdded;
         }
+
+        //public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
+        //{
+        //    CustomList<T> tempArray = new CustomList<T>();
+        //    CustomList<T> customListSubtract = new CustomList<T>();
+        //    for (int i = 0, j = 0, k = 0; i < one.Count; i++)
+        //    {
+        //        tempArray.Add(one[i]);
+        //        if (one[i].Equals(two[j]))
+        //        {
+                    
+        //            two.Remove(one[i]);
+                    
+        //        }
+        //        else
+        //        {
+        //            customListSubtract[k] = one[i];
+        //            k++;
+        //            customListSubtract.count++;
+
+        //        }
+        //    }
+        //    customListSubtract.ToString();
+        //    return customListSubtract;
+        //}
+
+        public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
+        {
+            CustomList<T> customListSubtract = new CustomList<T>();
+            customListSubtract = one;
+            foreach (T item in two)
+            {
+                customListSubtract.Remove(item);
+            }
+            return customListSubtract;
+        }
+
+
     }
 }

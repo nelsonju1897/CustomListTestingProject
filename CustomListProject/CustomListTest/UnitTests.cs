@@ -255,7 +255,7 @@ namespace CustomListTest
             string expected = "1";
             string actual;
             int number1 = 1;
-            
+
 
             //act
             list1.Add(number1);
@@ -323,13 +323,13 @@ namespace CustomListTest
         }
 
         [TestMethod]
-        public void CustomList_OverLoadPlus_CombineTwoLists()
+        public void CustomList_OverLoadPlus_CombineTwoIntLists()
         {
             //arrange
             CustomList<int> list1 = new CustomList<int>();
             CustomList<int> list2 = new CustomList<int>();
             CustomList<int> actual;
-            int expected = 12345678;
+            string expected = (12345678).ToString();
            
             int number1 = 1;
             int number2 = 2;
@@ -356,7 +356,117 @@ namespace CustomListTest
 
             //assert
             //CollectionAssert.AreEqual(expected, actual);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual.ToString());
+        }
+
+        [TestMethod]
+        public void CustomList_OverLoadPlus_CombineTwoCharLists()
+        {
+            //arrange
+            CustomList<char> list1 = new CustomList<char>();
+            CustomList<char> list2 = new CustomList<char>();
+            CustomList<char> actual;
+            string expected = "Banana";
+
+            char character1 = 'B';
+            char character2 = 'a';
+            char character3 = 'n';
+            char character4 = 'a';
+            char character5 = 'n';
+            char character6 = 'a';
+            
+
+
+
+            //act
+            list1.Add(character1);
+            list1.Add(character2);
+            list1.Add(character3);
+            list1.Add(character4);
+            list2.Add(character5);
+            list2.Add(character6);
+            actual = list1 + list2;
+
+
+            //assert
+            //CollectionAssert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual.ToString());
+        }
+
+        [TestMethod]
+        public void CustomList_OverLoadMinus_RemoveSimilarIntsFromTwoLists()
+        {
+            //arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> actual;
+            string expected = "2";
+
+            int number1 = 1;
+            int number2 = 2;
+            int number3 = 3;
+            int number4 = 4;
+
+            int number5 = 1;
+            int number6 = 3;
+            int number7 = 4;
+            int number8 = 5;
+
+
+
+            //act
+            list1.Add(number1);
+            list1.Add(number2);
+            list1.Add(number3);
+            list1.Add(number4);
+            list2.Add(number5);
+            list2.Add(number6);
+            list2.Add(number7);
+            list2.Add(number8);
+            actual = list1 - list2;
+
+
+            //assert
+            CollectionAssert.AreEqual(expected, actual);
+            //Assert.AreEqual(expected, actual.ToString());
+        }
+
+        [TestMethod]
+        public void CustomList_OverLoadMinus_RemoveSimilarIntsFromTwo()
+        {
+            //arrange
+            CustomList<int> list1 = new CustomList<int>();
+            CustomList<int> list2 = new CustomList<int>();
+            CustomList<int> actual;
+            int expected = 271;
+
+            int number1 = 1;
+            int number2 = 2;
+            int number3 = 7;
+            int number4 = 1;
+
+            int number5 = 1;
+            int number6 = 3;
+            int number7 = 4;
+            int number8 = 5;
+
+
+
+            //act
+            list1.Add(number1);
+            list1.Add(number2);
+            list1.Add(number3);
+            list1.Add(number4);
+            list2.Add(number5);
+            list2.Add(number6);
+            list2.Add(number7);
+            list2.Add(number8);
+            actual = list1 - list2;
+
+
+            //assert
+            CollectionAssert.AreEqual(expected, actual);
+            //Assert.AreEqual(expected, actual);
         }
 
     }
