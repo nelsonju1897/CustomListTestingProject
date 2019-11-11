@@ -330,7 +330,7 @@ namespace CustomListTest
             CustomList<int> list2 = new CustomList<int>();
             CustomList<int> actual;
             string expected = (12345678).ToString();
-           
+
             int number1 = 1;
             int number2 = 2;
             int number3 = 3;
@@ -374,7 +374,7 @@ namespace CustomListTest
             char character4 = 'a';
             char character5 = 'n';
             char character6 = 'a';
-            
+
 
 
 
@@ -427,8 +427,8 @@ namespace CustomListTest
 
 
             //assert
-            CollectionAssert.AreEqual(expected, actual);
-            //Assert.AreEqual(expected, actual.ToString());
+            //CollectionAssert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual.ToString());
         }
 
         [TestMethod]
@@ -438,7 +438,7 @@ namespace CustomListTest
             CustomList<int> list1 = new CustomList<int>();
             CustomList<int> list2 = new CustomList<int>();
             CustomList<int> actual;
-            int expected = 271;
+            string expected = "27";
 
             int number1 = 1;
             int number2 = 2;
@@ -465,8 +465,8 @@ namespace CustomListTest
 
 
             //assert
-            CollectionAssert.AreEqual(expected, actual);
-            //Assert.AreEqual(expected, actual);
+            //CollectionAssert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual.ToString());
         }
 
     }

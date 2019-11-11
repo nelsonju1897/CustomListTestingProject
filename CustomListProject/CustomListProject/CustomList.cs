@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T> :IEnumerable
+    public class CustomList<T> :IEnumerable 
+
     {
         //member variables
         private T[] items;
@@ -84,10 +85,8 @@ namespace CustomListProject
                 {
                     tempArray[j] = items[i];
                 }
-
             }
             items = tempArray;
-
             count--;
 
         }
@@ -126,42 +125,24 @@ namespace CustomListProject
             return customListAdded;
         }
 
-        //public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
-        //{
-        //    CustomList<T> tempArray = new CustomList<T>();
-        //    CustomList<T> customListSubtract = new CustomList<T>();
-        //    for (int i = 0, j = 0, k = 0; i < one.Count; i++)
-        //    {
-        //        tempArray.Add(one[i]);
-        //        if (one[i].Equals(two[j]))
-        //        {
-                    
-        //            two.Remove(one[i]);
-                    
-        //        }
-        //        else
-        //        {
-        //            customListSubtract[k] = one[i];
-        //            k++;
-        //            customListSubtract.count++;
-
-        //        }
-        //    }
-        //    customListSubtract.ToString();
-        //    return customListSubtract;
-        //}
-
         public static CustomList<T> operator -(CustomList<T> one, CustomList<T> two)
         {
-            CustomList<T> customListSubtract = new CustomList<T>();
-            customListSubtract = one;
-            foreach (T item in two)
+            CustomList<T> customListSubtract = new CustomList<T>();            
+            for (int i = 0, j = 0, k = 0; i < one.Count; i++)
             {
-                customListSubtract.Remove(item);
+                if (one[i].Equals(two[j]))
+                {
+                    two.Remove(one[i]);
+                }
+                else
+                {
+                    customListSubtract[k] = one[i];
+                    customListSubtract.count++;
+                    k++;
+                }
             }
+            customListSubtract.ToString();
             return customListSubtract;
         }
-
-
     }
 }
